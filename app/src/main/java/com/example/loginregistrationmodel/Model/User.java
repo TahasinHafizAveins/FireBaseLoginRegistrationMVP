@@ -1,4 +1,4 @@
-package com.example.loginregistrationmodel.UserRegistration;
+package com.example.loginregistrationmodel.Model;
 
 public class User {
 
@@ -9,13 +9,18 @@ public class User {
     private String password;
     private String repassword;
 
-    User(String name, String address, String phone, String email, String password, String repassword) {
+    public User(String name, String address, String phone, String email, String password, String repassword) {
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.email = email;
         this.password = password;
         this.repassword = repassword;
+    }
+
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
     public String getName() {

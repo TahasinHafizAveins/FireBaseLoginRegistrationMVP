@@ -9,9 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.loginregistrationmodel.MainActivity;
+import com.example.loginregistrationmodel.UserHome.HomeActivity;
 import com.example.loginregistrationmodel.R;
-import com.example.loginregistrationmodel.UserLogin.LogIn;
+import com.example.loginregistrationmodel.Model.User;
+import com.example.loginregistrationmodel.UserLogin.LoginActivity;
 
 import es.dmoral.toasty.Toasty;
 
@@ -57,13 +58,15 @@ public class Registration extends AppCompatActivity implements RegistrationContr
                         phone.getText().toString(),email.getText().toString(),
                         password.getText().toString(),repassword.getText().toString());
 
+                User usres =new User(email.getText().toString(),password.getText().toString());
+
                 boolean valid = registrationPresenter.validate(user);
 
                 if(!valid){
                     return;
                 }
 
-                registrationPresenter.showSuccessToast("Registration Success");
+                registrationPresenter.signUp(usres);
 
             }
         });
@@ -116,13 +119,19 @@ public class Registration extends AppCompatActivity implements RegistrationContr
 
     @Override
     public void startHomeActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 
     @Override
     public void startLoginActivity() {
-        Intent intent = new Intent(this, LogIn.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void thisActivity() {
+        startActivity(getIntent());
     }
 }

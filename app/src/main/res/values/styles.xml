@@ -130,7 +130,7 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="ExistingAccount" parent="android:Widget.Material.Button.Borderless">
+    <style name="ExistingAccount" >
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">24dp</item>
@@ -140,7 +140,18 @@
         <item name="android:textColor">#E91E63</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:backgroundTint">@android:color/transparent</item>
+    </style>
+
+    <style name="title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:background">#00ACC1</item>
+        <item name="android:textColor">#F8F5F5</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">27sp</item>
     </style>
 
 </resources>

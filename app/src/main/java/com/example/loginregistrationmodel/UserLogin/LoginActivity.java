@@ -9,13 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.loginregistrationmodel.MainActivity;
+import com.example.loginregistrationmodel.Model.User;
+import com.example.loginregistrationmodel.UserHome.HomeActivity;
 import com.example.loginregistrationmodel.R;
 import com.example.loginregistrationmodel.UserRegistration.Registration;
 
 import es.dmoral.toasty.Toasty;
 
-public class LogIn extends AppCompatActivity implements Contract.View {
+public class LoginActivity extends AppCompatActivity implements Contract.View {
 
     EditText email;
     EditText password;
@@ -45,7 +46,7 @@ public class LogIn extends AppCompatActivity implements Contract.View {
                 if (!valid) {
                     return;
                 }
-                loginPresenter.showSuccessToast("Login Successful");
+                loginPresenter.signIn(user);
 
             }
         });
@@ -89,7 +90,7 @@ public class LogIn extends AppCompatActivity implements Contract.View {
 
     @Override
     public void startHomeActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 
