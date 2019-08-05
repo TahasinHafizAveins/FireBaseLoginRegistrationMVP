@@ -16,6 +16,7 @@ public interface Contract {
         void showToastOnSuccess(String massage);
         void showToastOnError(String massage);
         void startHomeActivity();
+        void resetPassword();
         void gotoRegistrationActivity();
 
     }

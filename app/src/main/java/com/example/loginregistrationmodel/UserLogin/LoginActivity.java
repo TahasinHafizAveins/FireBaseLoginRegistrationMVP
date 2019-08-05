@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.loginregistrationmodel.Model.User;
 import com.example.loginregistrationmodel.UserHome.HomeActivity;
 import com.example.loginregistrationmodel.R;
+import com.example.loginregistrationmodel.UserLogin.resetPassword.ResetPassword;
 import com.example.loginregistrationmodel.UserRegistration.Registration;
 
 import es.dmoral.toasty.Toasty;
@@ -22,6 +23,7 @@ public class LoginActivity extends AppCompatActivity implements Contract.View {
     EditText password;
     Button loginBtn;
     Button registrationBtn;
+    Button resetBtn;
     LoginPresenter loginPresenter;
 
 
@@ -34,6 +36,7 @@ public class LoginActivity extends AppCompatActivity implements Contract.View {
         password = findViewById(R.id.password);
         loginBtn = findViewById(R.id.btn_login);
         registrationBtn = findViewById(R.id.link_signUp);
+        resetBtn = findViewById(R.id.link_reset);
 
         loginPresenter = new LoginPresenter((Contract.View) this);
 
@@ -55,6 +58,13 @@ public class LoginActivity extends AppCompatActivity implements Contract.View {
             @Override
             public void onClick(View view) {
                 gotoRegistrationActivity();
+            }
+        });
+
+        resetBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resetPassword();
             }
         });
 
@@ -91,6 +101,12 @@ public class LoginActivity extends AppCompatActivity implements Contract.View {
     @Override
     public void startHomeActivity() {
         Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void resetPassword() {
+        Intent intent = new Intent(this, ResetPassword.class);
         startActivity(intent);
     }
 
